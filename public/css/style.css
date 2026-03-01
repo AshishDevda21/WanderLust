@@ -131,3 +131,11 @@ body {
     height: 400px;
     width: 80vh;
 }
+
+
+.nav-logo {
+    width: 150px; 
+    height: 150px;
+    object-fit: contain;
+    vertical-align: middle;
+  }
