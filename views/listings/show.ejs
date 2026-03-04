@@ -4,11 +4,11 @@
 </script>
 
 <div class="row mt-3">
-  <div class="col-8 offset-2">
+  <div class="col-12 col-lg-10 offset-lg-1">
 
     <h3 class="mb-3"><b><%= listing.title %></b></h3><br />
 
-    <div class="card col-6 offset-3 show-card listing-card">
+    <div class="card col-12 col-md-8 offset-md-2 show-card listing-card">
 
       <img
         src="<%= listing.image.url %>"
@@ -37,8 +37,8 @@
 
     <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
 
-    <div class="row btns">
-      <div class="col-2 offset-3">
+    <div class="row btns g-2 justify-content-center">
+      <div class="col-12 col-sm-4 col-md-3">
         <a
           href="/listings/<%= listing._id %>/edit"
           class="btn btn-dark edit-btn w-100"
@@ -47,12 +47,12 @@
         </a>
       </div>
 
-      <div class="col-2 ">
+      <div class="col-12 col-sm-4 col-md-3">
         <form
           method="POST"
           action="/listings/<%= listing._id %>?_method=DELETE"
         >
-          <button class="btn btn-sm btn-dark">
+          <button class="btn btn-dark w-100">
             Delete
           </button>
         </form>
@@ -64,7 +64,7 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col-8 offset-3 mb-3">
+    <div class="col-12 col-lg-10 offset-lg-1 mb-3">
     
       <% if(currUser) { %>
         <hr />
@@ -123,11 +123,12 @@
 
 
       <% if (listing.reviews.length > 0)  { %>
-      <div class="row">
+      <div class="row g-3">
         <h4>All Reviews</h4>
         <% for (review of listing.reviews) { %>
-          <div class="card col-5 ms-3 mb-3">
-            <div class="card-body">
+          <div class="col-12 col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
               <h5 class="card-title">@<%= review.author.username %></h5>
               <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
               <p class="card-text"><%= review.comment %></p>
@@ -140,13 +141,14 @@
                   <button class="btn btn-sm btn-dark">Delete Review</button>
                 </form>
               <% } %>
+              </div>
             </div>
           </div>
         <% } %>
       </div>
       <% } %>
     </div>
-    <div class="col-8 offset-3 mb-3">
+    <div class="col-12 col-lg-10 offset-lg-1 mb-3">
       <h3>Where you'll be</h3>
       <div id="map"></div>
     </div>

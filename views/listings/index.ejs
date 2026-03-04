@@ -1,42 +1,5 @@
 <% layout("/layouts/boilerplate") %>
 
-<style>
-  #filters {
-    display: flex;
-    align-items: center;
-  }
-
-  .filter {
-    text-align: center;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    opacity: 0.7;
-  }
-
-  .filter:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-
-  .filter p {
-    font-size: 0.8rem;
-  }
-
-  .tax-info {
-    display: none;
-  }
-
-  .tax-toggle {
-    border: 1px solid black;
-    border-radius: 1rem;
-    height: 3.25rem;
-    padding: 1rem;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-  }
-</style>
-
 <div id="filters">
 
   <div class="filter">
@@ -108,7 +71,7 @@
 </div>
 
 
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4 mt-3">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
   <% for (let listing of allListings) { %>
     <div class="col">
       <a href="/listings/<%= listing._id %>" class="listing-link">
@@ -116,8 +79,7 @@
           
           <img 
             src="<%= listing.image.url %>"
-            class="card-img-top w-100"
-            style="height: 20rem; object-fit: cover;"
+            class="card-img-top w-100 listing-index-img"
             alt="listing_image"
           />
 
