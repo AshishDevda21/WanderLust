@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
@@ -110,8 +109,12 @@ app.use("/", userRouter);
 // =======================
 
 // 404 Error
-app.use((req, res, next) => {
-  next(new ExpressError(404, "Page Not Found!"));
+app.use((req, res) => {
+  res.status(404).render("error.ejs", {
+    message: "Page Not Found!",
+    redirectUrl: "/listings",
+    redirectDelay: 1500,
+  });
 });
 
 // Global Error Handler

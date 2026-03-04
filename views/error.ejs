@@ -3,5 +3,16 @@
 <div class="row mt-3">
   <div class="alert alert-danger col-6 offset-3" role="alert">
     <p class="alert-heading"><%= message %></p>
+    <% if (redirectUrl) { %>
+      <p class="mb-0">Redirecting to listings...</p>
+    <% } %>
   </div>
 </div>
+
+<% if (redirectUrl) { %>
+  <script>
+    setTimeout(() => {
+      window.location.href = "<%= redirectUrl %>";
+    }, <%= redirectDelay || 1500 %>);
+  </script>
+<% } %>
